@@ -24,6 +24,14 @@ dpkg -i linux-headers_amd64.deb
 dpkg -i linux-image_amd64.deb
 dpkg -i linux-libc-dev_amd64.deb
 
+
+kernel0=$(grep  -e submenu /boot/grub/grub.cfg|cut -d"'" -f2)
+kernel1=$(grep  -e menuentry /boot/grub/grub.cfg|grep 5.4.178|cut -d"'" -f2|head -n1)
+if [ -n "kernel1" ];then
+	sed -i "s/GRUB_DEFAULT=.*/GRUB_DEFAULT=\"$kernel0>kernel1\"/" /etc/default/grub
+fi
+update-grub
+
 cd shadowsocks-libev-3.3.5/
 ./autogen.sh
 ./configure --disable-documentation 

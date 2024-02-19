@@ -16,14 +16,14 @@ if test -f /etc/os-release ; then
 else
 	. /usr/lib/os-release
 fi
-if [ "$ID" = "debian" ] && [ "$VERSION_ID" != "9" ] && [ "$VERSION_ID" != "10" ]; then
-	echo "This script only work with Debian Stretch (9.x) or Debian Buster (10.x)"
+if [ "$ID" = "debian" ] && [ "$VERSION_ID" != "9" ] && [ "$VERSION_ID" != "10" ]  && [ "$VERSION_ID" != "11" ] ; then
+	echo "This script only work with Debian Stretch (9.x) or Debian Buster (10.x) or Debian Buster (11.x)"
 	exit 1
-elif [ "$ID" = "ubuntu" ] && [ "$VERSION_ID" != "18.04" ] && [ "$VERSION_ID" != "19.04" ] && [ "$VERSION_ID" != "20.04" ]; then
-	echo "This script only work with Ubuntu 18.04, 19.04 or 20.04"
+elif [ "$ID" = "ubuntu" ] && [ "$VERSION_ID" != "18.04" ] && [ "$VERSION_ID" != "19.04" ] && [ "$VERSION_ID" != "20.04" ] && [ "$VERSION_ID" != "22.04" ]; then
+	echo "This script only work with Ubuntu 18.04, 19.04 or 20.04 or 22.04"
 	exit 1
 elif [ "$ID" != "debian" ] && [ "$ID" != "ubuntu" ]; then
-	echo "This script only work with Ubuntu 18.04, Ubuntu 19.04, Ubutun 20.04, Debian Stretch (9.x) or Debian Buster (10.x)"
+	echo "This script only work with Ubuntu 18.04, Ubuntu 19.04, Ubutun 20.04,Ubutun 22.04, Debian Stretch (9.x) or Debian Buster (10.x)"
 	exit 1
 fi
 
