@@ -3,7 +3,7 @@ Description=Show IP
 After=network.target
  
 [Service]
-Type=oneshot
+Type=simple
 ExecStart=/usr/bin/showip
  
 [Install]
