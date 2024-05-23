@@ -24,6 +24,14 @@ int main() {
     server_address.sin_port = htons(PORT);
     server_address.sin_addr.s_addr = INADDR_ANY;
     bind(server_socket, (struct sockaddr*)&server_address, sizeof(server_address));
+    
+ //Prevent ip multiplexing
+    int one = 1;
+    if (setsockopt(server_socket , SOL_SOCKET, SO_REUSEADDR, &one, sizeof(one)) < 0) {
+        close(server_socket);
+        printf("setsockopt SO_REUSEADDR error \n");
+        return -1;
+    }
 
     // 监听
     listen(server_socket, 5);
