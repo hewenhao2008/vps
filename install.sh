@@ -20,9 +20,12 @@
 apt update
 apt -y install pkg-config libpcre3-dev libmbedtls-dev libsodium-dev libc-ares-dev libev-dev  libtool automake make autoconf iperf3 ntp net-tools psmisc git python3-pip gcc
 pip3 install speedtest-cli
-dpkg -i linux-headers_amd64.deb
-dpkg -i linux-image_amd64.deb
-dpkg -i linux-libc-dev_amd64.deb
+# dpkg -i linux-headers_amd64.deb
+# dpkg -i linux-image_amd64.deb
+# dpkg -i linux-libc-dev_amd64.deb
+dpkg -i linux-headers*.deb
+dpkg -i linux-image*.deb
+dpkg -i linux-libc-dev*.deb
 
 
 kernel0=$(grep  -e submenu /boot/grub/grub.cfg|cut -d"'" -f2)
